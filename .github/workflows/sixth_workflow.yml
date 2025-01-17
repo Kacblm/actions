@@ -1,4 +1,4 @@
-name: Fifth Workflow
+name: Six Workflow
 on:
   issues:
     types: [edited, deleted]
