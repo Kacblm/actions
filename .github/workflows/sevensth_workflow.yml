@@ -1,7 +1,18 @@
 name: Seven Workflow
 on:
   push:
-    branches: main
+    branches: 
+      - main
+      - "page/*"
+      - "page/**" #Это если ветка в ветке типо page/testin/categoring/bla и так далее
+      - "!page/blog" #исключаем эту ветку
+    tags:
+      - v1.*
+      - "!v1.2.1"
+    paths: # Фильтр по файлам и каталогам
+      - "**.html"
+
+# ВСЁ ЧТО ВЫШЕ, ИСПОЛЬЩУЕТСЯ И А НЕ ИЛИ, ТО ЕСТ ВСЁ ЧТО ОПИСАНО ДОЛЖНЫ ПРИСУТСТВОВАТЬ, ТО ЕСТЬ 3 ФИЛЬТРА. БРАНЧ ТЕГС И ПАС
     
 jobs:
     run-first-command:
