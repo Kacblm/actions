@@ -1,0 +1,19 @@
+name: Fifth Workflow
+on:
+  issues:
+    types: [edited, deleted]
+  pull_request:
+    types: [assigned, closed]
+
+jobs:
+    run-first-command:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Even vars
+            run: |
+              echo $GITHUB_SHA
+              echo $GITHUB_REF
+
+
+              
+
