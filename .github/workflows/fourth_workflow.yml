@@ -8,7 +8,7 @@ on:
 jobs:
     success-command:
         runs-on: ubuntu-latest
-        if: ${{github.event.workflow_run.conclusion == 'seccess'}}
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         steps:
           - name: Say hello
             run: echo "Hello"
