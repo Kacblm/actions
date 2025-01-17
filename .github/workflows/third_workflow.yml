@@ -1,22 +1,16 @@
-name: Second Workflow
+name: First Workflow
 on: [push]
 
 jobs:
     run-first-command:
         runs-on: ubuntu-latest
         steps:
-          - name: Display node version on Ubuntu
-            run: node -v
-    run-second-command:
-        runs-on: windows-latest
-        steps:
-          - name: Display node version on Windows
-            run: node -v
-    run-third-command:
-        runs-on: macos-latest
-        needs: run-second-command
-        steps:
-          - name: Display node version on MacOs
-            run: node -v
-
+          - name: List Files and Copy Repo
+            run: |
+              pwd
+              ls -la
+          - uses: actions/checkout@v4
+          - name: List files
+            run: ls -a
+              
 
