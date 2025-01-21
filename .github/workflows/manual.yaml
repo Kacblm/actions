@@ -1,21 +1,13 @@
 name: Manual workflow
 on:
   workflow_dispatch:
-    inputs:
-        logLevel:
-          description: 'Log level'      # Поле будет выводиться в форме ручного запуска
-          required: true                # если это поле обязательно
-          default: 'warning'            # можно установить значение по умолчанию
+
 
 jobs:
-  printInputs:
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo "Log level is ${{ github.event.inputs.logLevel }}"
-  ssh_run:  
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check SSH
+    run-ssh-command:
+        runs-on: ubuntu-latest
+        steps:
+          - name: ssh_check
         env:
           SSH_HOST: ${{ secrets.STAGE_SSH_HOST }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
