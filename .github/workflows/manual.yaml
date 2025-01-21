@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "Log level is ${{ github.event.inputs.logLevel }}"
-
+  ssh_run:  
     runs-on: ubuntu-latest
     steps:
       - name: Check SSH
