@@ -15,4 +15,8 @@ jobs:
               echo "$SSH_PRIVATE_KEY" > private_key.pem
               chmod 600 private_key.pem
               echo $SSH_HOST
-              
+              ssh -i private_key.pem -o StrictHostKeyChecking=no hafizov@$SSH_HOST <<EOF
+              mkdir -p /home/hafizov/123
+              EOF
+              pwd
+              ls -la
