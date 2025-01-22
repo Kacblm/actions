@@ -1,6 +1,6 @@
 name: scheduler Workflow
 on:
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
         titleCustom:
             description: Type test
