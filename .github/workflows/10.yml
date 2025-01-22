@@ -1,0 +1,21 @@
+name: scheduler Workflow
+on:
+  workflow_dispatch
+    inputs:
+        titleCustom:
+            description: Type test
+            type: string
+            required: true
+            defaults: "Hello world"
+    
+jobs:
+    run-first-command:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Even vars
+            run: |
+              echo $GITHUB_SHA
+              echo $GITHUB_REF
+
+
+              
