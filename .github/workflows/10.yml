@@ -1,4 +1,4 @@
-name: scheduler Workflow
+name: Manual2 Workflow
 on:
   workflow_dispatch:
     inputs:
