@@ -6,7 +6,7 @@ on:
             description: Type test
             type: string
             required: true
-            defaults: "Hello world"
+            default: "Hello world"
     
 jobs:
     run-first-command:
