@@ -1,0 +1,23 @@
+name: Test Env
+on:
+    workflow_dispatch:
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name:
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
+          echo $GITHUB_REF#refs/heads/
+          echo $GITHUB_REF_NAME
+          echo $BRANCH_NAME
+#            cd /opt/ape-server-test
+#            docker compose down
+#            docker-compose up -d --force-recreate
+#            docker ps -a | grep ape

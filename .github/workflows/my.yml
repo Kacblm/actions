@@ -39,6 +39,8 @@ jobs:
             docker load -i /opt/ape-server-test/ape-server.tar
             rm /opt/ape-server-test/ape-server.tar
             docker run -d -p 8000:8080 ape-server
+            BRANCH=$(echo ${{GITHUB_REF#refs/heads/}})
+            echo $BRANCH
 #            cd /opt/ape-server-test
 #            docker compose down
 #            docker-compose up -d --force-recreate
