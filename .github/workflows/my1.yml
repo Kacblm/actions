@@ -14,7 +14,8 @@ jobs:
         run: |
           echo ${GITHUB_SHA}
           echo ${GITHUB_SHA::7}
-
+          BRANCH=$(echo ${GITHUB_SHA::7})
+          echo $BRANCH
 #            cd /opt/ape-server-test
 #            docker compose down
 #            docker-compose up -d --force-recreate
