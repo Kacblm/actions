@@ -1,0 +1,42 @@
+name: Build and deploy API
+on:
+    workflow_dispatch:
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build docker image
+        run: docker build -t ape-server .
+      
+      - name: Save docker image as tar
+        run: |
+          docker save ape-server -o ape-server.tar
+          chmod 644 ape-server.tar
+
+      - name: Copy docker image to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.STAGE_SSH_HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "ape-server.tar"
+          target: /opt/ape-server-test
+
+      - name: Load docker image to server repo 
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.STAGE_SSH_HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker load -i /opt/ape-server-test/ape-server.tar
+#            cd /opt/ape-server-test
+#            docker compose down
+#            docker-compose up -d --force-recreate
+#            docker ps -a | grep ape
