@@ -13,11 +13,11 @@ jobs:
       - name:
         run: |
           echo $GITHUB_SHA
-          echo $GITHUB_REF
-          echo $GITHUB_REF#refs/heads/
-          echo $GITHUB_REF_NAME
-          echo $BRANCH_NAME
+          echo ${{GITHUB_REF#refs/heads/}}
+
 #            cd /opt/ape-server-test
 #            docker compose down
 #            docker-compose up -d --force-recreate
 #            docker ps -a | grep ape
+
+
