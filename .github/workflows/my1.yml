@@ -18,10 +18,7 @@ jobs:
           echo $BRANCH
           echo $GITHUB_REF
           BRANCH1=$(echo ${GITHUB_REF#refs/heads/})
-          echo $BRANCH1
-          echo ${github_event_name}
-          echo ${github_ref}
-          echo ${github_event_head_commit_message}
+#          echo $BRANCH1
 #            cd /opt/ape-server-test
 #            docker compose down
 #            docker-compose up -d --force-recreate
