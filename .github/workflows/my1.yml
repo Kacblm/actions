@@ -18,7 +18,7 @@ jobs:
           echo $BRANCH
           echo $GITHUB_REF
           BRANCH1=$(echo ${GITHUB_REF#refs/heads/})
-#          echo $BRANCH1
+          echo $BRANCH1
 #            cd /opt/ape-server-test
 #            docker compose down
 #            docker-compose up -d --force-recreate
