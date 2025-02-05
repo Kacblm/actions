@@ -8,19 +8,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name:
-        run: |
-          echo ${GITHUB_SHA}
-          echo ${GITHUB_SHA::7}
-          BRANCH=$(echo ${GITHUB_SHA::7}
-          echo $BRANCH
-          echo $GITHUB_REF
-          BRANCH1=$(echo ${GITHUB_REF#refs/heads/})
-          echo $BRANCH1
-
+#      - name:
+#        run: |
+#          echo ${GITHUB_SHA}
+#          echo ${GITHUB_SHA::7}
+#          BRANCH=$(echo ${GITHUB_SHA::7}
+#          echo $BRANCH
+#          echo $GITHUB_REF
+#          BRANCH1=$(echo ${GITHUB_REF#refs/heads/})
+#          echo $BRANCH1
       - name: Check Vars
         run: |
-          echo "MY_VARS": ${{ vars.TEST_VARS }}
+          echo "MY_VARS: ${{ vars.TEST_VARS }}"
 
 
 
