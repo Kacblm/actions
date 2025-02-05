@@ -19,9 +19,10 @@ jobs:
           echo $GITHUB_REF
           BRANCH1=$(echo ${GITHUB_REF#refs/heads/})
           echo $BRANCH1
-#            cd /opt/ape-server-test
-#            docker compose down
-#            docker-compose up -d --force-recreate
-#            docker ps -a | grep ape
+
+      - name: Check Vars
+        run: |
+          echo "MY_VARS": ${{ vars.TEST_VARS }}
+
 
 
