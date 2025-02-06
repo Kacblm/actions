@@ -20,6 +20,15 @@ jobs:
       - name: Check Vars
         run: |
           echo "MY_VARS: ${{ vars.TEST_VARS }}"
-
+              runs-on: ubuntu-latest
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v2.0.0
+        with:
+          ENV_TEST_API_KEY: ${{ vars.TEST_VARSY }}
+          ENV_ANOTHER_KEY: ${{ secrets.USERNAME }}
+      - name: Check Vars
+        run: |
+            ls -la
+            cat .env
 
 
