@@ -24,7 +24,7 @@ jobs:
       - name: Create .env file
         uses: ozaytsev86/create-env-file@v1
         with:
-          ANOTHER_KEY: ${{ secrets.USERNAME }}
+          ENV_ANOTHER_KEY: ${{ secrets.USERNAME }}
 
       - name: Check Vars
         run: |
