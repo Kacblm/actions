@@ -22,7 +22,7 @@ jobs:
           echo "MY_VARS: ${{ vars.TEST_VARS }}"
 
       - name: Create .env file
-        uses: ozaytsev86/create-env-file@v2.0.0
+        uses: ozaytsev86/create-env-file@v1
         with:
           ENV_ANOTHER_KEY: ${{ secrets.USERNAME }}
 
